@@ -26,9 +26,19 @@ assert len(xData) == len(yData) and len(yData) == len(zData)
 
 fig = plt.figure()
 ax = Axes3D(fig)
+
+#display
+displayWidth = 1500.0
+displayHeight = 700.0
+
+xDisplay = np.array([0.,displayWidth,displayWidth,0.,0.])
+yDisplay = np.zeros(5)
+zDisplay = np.array([0.,0.,-displayHeight,-displayHeight,0.])
+ax.plot(xDisplay,yDisplay,zDisplay,c="r")
+
 # start and end point
-#ax.scatter(np.array([xData[0],xData[-1]]), np.array(([yData[0],yData[-1]])), np.array(([zData[0],zData[-1]])),c="r",marker='d')
-ax.plot( np.array(xData), -1.0*np.array(zData), -1.0*np.array(yData))
+ax.scatter(np.array([xData[0],xData[-1]]), -1.0*np.array(([zData[0],zData[-1]])), -1.0*np.array(([yData[0],yData[-1]])),c="r",marker='d')
+ax.plot( np.array(xData), -1.0*np.array(zData), -1.0*np.array(yData),markersize=1200,label='view point')
 ax.legend()
 
 
